@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"
+      content="style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"
     />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
@@ -13,8 +13,9 @@
       content="initial-scale=1, width=device-width, viewport-fit=cover"
     />
     <meta name="color-scheme" content="light dark" />
-    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
     <link rel="stylesheet" type="text/css" href="css/toptal.css" />
+    <script src="js/lib/jquery-1.11.1.min.js"></script>
+    <script src="js/lib/jquery.mobile-1.4.5.min.js"></script>
     <title>Hello World</title>
   </head>
   <body>
@@ -22,21 +23,20 @@
       <div id="tab-content"></div>
     </div>
     <nav class="nav">
-      <a id="btn1" class="nav__link active">
+      <a id="btn1" class="nav__link">
         <img src="./img/creativity1.png" class="nav__icon" alt="btn1" />
-        <span class="nav_text">btn1</span>
+        <span>btn1</span>
       </a>
       <a id="btn2" class="nav__link">
         <img src="./img/tablet1.png" class="nav__icon" alt="btn2" />
-        <span class="nav_text">btn2</span>
+        <span>btn2</span>
       </a>
       <a id="btn3" class="nav__link">
         <img src="./img/modeling1.png" class="nav__icon" alt="btn3" />
-        <span class="nav_text">btn3</span>
+        <span>btn3</span>
       </a>
     </nav>
-    <script src="js/lib/jquery-1.11.1.min.js"></script>
-    <script src="js/lib/jquery.mobile-1.4.5.min.js"></script>
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/Controller.js"></script>
     <script type="text/javascript" src="js/index.js"></script>

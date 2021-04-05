@@ -1,37 +1,39 @@
-<div id="search-project-wrapper" style="background-color: green">
-  <div id="search">
-    <div class="input-group">
-      <input
-        id="address"
-        type="textbox"
-        placeholder="Project name.."
-        class="form-control"
-      />
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button" id="addressSearch">
-          Search
-        </button>
-      </span>
-    </div>
-  </div>
-  <div id="project-results">
-    <div class="project">
-      <div>
-        <strong>Project name: </strong>
-        <span class="project-name"></span>
-      </div>
-      <div>
-        <strong>Company: </strong>
-        <span class="project-company"></span>
-      </div>
-      <div>
-        <strong>Location: </strong>
-        <span class="project-location"></span>
-      </div>
-      <div class="project-description-wrapper">
-        <strong>Description: </strong>
-        <div class="project-description"></div>
-      </div>
-    </div>
-  </div>
+<style>
+  #api {
+    background-color: green;
+    justify-content: flex-start;
+    padding-top: 1.5em;
+  }
+  .spaceBetween {
+    margin-bottom: 16px;
+  }
+</style>
+
+<div id="api" class="windows">
+  <button id="camera" class="btn spaceBetween">CAMERA</button>
+  <button id="gallery" class="btn spaceBetween">GALLERY</button>
+  <button id="gps" class="btn spaceBetween">GPS</button>
+  <button id="calendar" class="btn spaceBetween">CALENDAR</button>
+  <button id="contacts" class="btn spaceBetween">CONTACTS</button>
 </div>
+
+<script>
+  $(function () {
+    $("#camera").on("click", () => {
+      app.camera(Camera.PictureSourceType.CAMERA);
+    });
+
+    $("#gallery").on("click", () => {
+      app.camera(Camera.PictureSourceType.PHOTOLIBRARY);
+    });
+    $("#gps").on("click", () => {
+      app.gps();
+    });
+    $("#calendar").on("click", () => {
+      app.camera(Camera.PictureSourceType.PHOTOLIBRARY);
+    });
+    $("#contacts").on("click", () => {
+      app.camera(Camera.PictureSourceType.PHOTOLIBRARY);
+    });
+  });
+</script>

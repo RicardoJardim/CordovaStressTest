@@ -1,5 +1,27 @@
+body {
+  font-family: system-ui, -apple-system, -apple-system-font, "Segoe UI",
+    "Roboto", sans-serif;
+  -webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */
+  -webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+  -webkit-user-select: none; /* prevent copy paste, to allow, change 'none' to 'text' */
+  background-color: #e4e4e4;
+  font-size: 16px;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  /* Padding to avoid the "unsafe" areas behind notches in the screen */
+  padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
+    env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+  text-transform: uppercase;
+  width: 100%;
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width: 400px) {
+}
+
 #container {
-  height: 100%;
+  height: 93vh;
   width: 100%;
   margin: auto;
   overflow: hidden;
@@ -7,7 +29,7 @@
 }
 
 #tab-content {
-  height: 100%;
+  height: 93vh;
   margin: auto;
   overflow-y: auto;
 }
@@ -41,8 +63,7 @@
   -webkit-tap-highlight-color: transparent;
   transition: background-color 0.1s ease-in-out;
 }
-
-.nav_text {
+.nav__link > span {
   color: #000;
 }
 
@@ -53,6 +74,40 @@
 }
 
 .active {
-  color: white;
-  background-color: tomato;
+  color: #ffffff !important;
+}
+.active > img {
+  -webkit-filter: invert(100%);
+}
+.active > span {
+  font-weight: bold;
+  color: #ffffff !important;
+}
+.btn {
+  width: 60%;
+  background-color: #0099ff;
+  height: 7vh;
+  font-weight: normal;
+  color: #ffffff !important;
+  font-size: 1em;
+  border: none;
+  padding: 5px;
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+}
+
+.windows {
+  font-size: 1.4em;
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 92vh;
+  overflow: hidden;
+}
+
+#fetch {
 }

@@ -1,37 +1,73 @@
-<div id="search-project-wrapper" style="background-color: red">
-  <div id="search">
-    <div class="input-group">
-      <input
-        id="address"
-        type="textbox"
-        placeholder="Project name.."
-        class="form-control"
-      />
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button" id="addressSearch">
-          Search
-        </button>
-      </span>
-    </div>
-  </div>
-  <div id="project-results">
-    <div class="project">
-      <div>
-        <strong>Project name: </strong>
-        <span class="project-name"></span>
-      </div>
-      <div>
-        <strong>Company: </strong>
-        <span class="project-company"></span>
-      </div>
-      <div>
-        <strong>Location: </strong>
-        <span class="project-location"></span>
-      </div>
-      <div class="project-description-wrapper">
-        <strong>Description: </strong>
-        <div class="project-description"></div>
-      </div>
-    </div>
-  </div>
+<style>
+  #server {
+    background-color: red;
+    justify-content: flex-end;
+  }
+  #show {
+    width: 50%;
+    height: 30%;
+    margin-bottom: 50px;
+    background-color: blue;
+    text-align: center;
+    position: relative;
+  }
+  .views {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    top: 0;
+    left: 0;
+    background-color: green;
+  }
+  .spaceBetween {
+    margin-bottom: 8px;
+  }
+</style>
+
+<div id="server" class="windows">
+  <div id="show"></div>
+
+  <button id="fetch" class="btn spaceBetween">FETCHDATA</button>
+  <button id="views" class="btn spaceBetween">CREATE VIEWS</button>
+  <button id="buttons" class="btn spaceBetween">CREATE BUTTONS</button>
 </div>
+
+<script>
+  $(function () {
+    $("#views").click(function () {
+      for (let index = 1; index <= 1000; index++) {
+        $("#show").append("<div class='views'>&#32</div>");
+      }
+    });
+    $("#buttons").click(function () {
+      for (let index = 1; index <= 1000; index++) {
+        $("#show").append("<button class='views'>click me</button>");
+      }
+    });
+    $("#fetch").click(function () {
+      var txt =
+        '[{id: 5161,uid: "d7fba35c-fdca-4fa3-8909-8aa93969684c",account_number: "3307629409",iban: "GB50ZMUQ04700898855906",bank_name: "ABBOTSTONE AGRICULTURAL PROPERTY UNIT TRUST",  routing_number: "290322488",swift_bic: "BCYPGB2LCBB"},]';
+      app.writeFile("bank.txt", txt);
+
+      /*  $.ajax({
+        url: "https://random-data-api.com/api/bank/random_bank?size=100",
+        type: "GET",
+        dataType: "json",
+        success: function (result) {
+          console.log(result);
+          app.writeFile("bank.txt", result);
+        },
+      });
+      $.ajax({
+        url: "https://random-data-api.com/api/users/random_user?size=100",
+        type: "GET",
+        dataType: "json",
+        success: function (result) {
+          console.log(result);
+          app.writeFile("users.txt", result);
+        },
+      }); */
+    });
+  });
+</script>
