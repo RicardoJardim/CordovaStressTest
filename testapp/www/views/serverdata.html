@@ -46,28 +46,20 @@
       }
     });
     $("#fetch").click(function () {
-      var txt =
-        '[{id: 5161,uid: "d7fba35c-fdca-4fa3-8909-8aa93969684c",account_number: "3307629409",iban: "GB50ZMUQ04700898855906",bank_name: "ABBOTSTONE AGRICULTURAL PROPERTY UNIT TRUST",  routing_number: "290322488",swift_bic: "BCYPGB2LCBB"},]';
-      app.writeFile("bank.txt", txt);
-
-      /*  $.ajax({
-        url: "https://random-data-api.com/api/bank/random_bank?size=100",
-        type: "GET",
-        dataType: "json",
-        success: function (result) {
-          console.log(result);
-          app.writeFile("bank.txt", result);
-        },
-      });
-      $.ajax({
-        url: "https://random-data-api.com/api/users/random_user?size=100",
-        type: "GET",
-        dataType: "json",
-        success: function (result) {
-          console.log(result);
-          app.writeFile("users.txt", result);
-        },
-      }); */
+      app.makeGetRequest2(
+        "https://random-data-api.com/api/users/random_user?size=100",
+        function (data) {
+          console.log(data);
+          app.writeFile("users.txt", data);
+        }
+      );
+      app.makeGetRequest2(
+        "https://random-data-api.com/api/bank/random_bank?size=100",
+        function (data) {
+          console.log(data);
+          app.writeFile("bank.txt", data);
+        }
+      );
     });
   });
 </script>

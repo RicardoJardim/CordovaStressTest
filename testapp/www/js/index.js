@@ -15,6 +15,37 @@ var app = {
       controller.changeController("#btn1", "cpu");
     }
   },
+  makeGetRequest: function (link, callback) {
+    cordova.plugin.http.get(
+      link,
+      { size: "100" },
+      {},
+      function (response) {
+        console.log(response.status);
+        callback(response.status, response);
+      },
+      function (response) {
+        console.error(response.error);
+        callback(response.status, response);
+      }
+    );
+  },
+  makeGetRequest2: function (link, callback) {
+    const options = {
+      method: "get",
+    };
+
+    cordova.plugin.http.sendRequest(
+      link,
+      options,
+      function (response) {
+        callback(response.data);
+      },
+      function (response) {
+        alert(response.error);
+      }
+    );
+  },
 
   camera: function (source) {
     let opts = {
@@ -92,6 +123,36 @@ var app = {
       });
     }
     saveFile(cordova.file.dataDirectory, data, where);
+  },
+  calendar: function () {
+    var success = function (message) {
+      alert("Success: " + JSON.stringify(message));
+    };
+    var error = function (message) {
+      alert("Error: " + message);
+    };
+    window.plugins.calendar.listCalendars(success, error);
+  },
+
+  contacts: function () {
+    function onSuccess(contacts) {
+      var list = "";
+
+      for (var i = 0; i < contacts.length; i++) {
+        console.log(contacts[i]);
+        list += contacts[i].displayName;
+      }
+      alert(list);
+    }
+
+    function onError(contactError) {
+      alert("onError! " + contactError.toString());
+    }
+    var options = new ContactFindOptions();
+    options.filter = "";
+    options.multiple = true;
+    var filter = ["displayName", "name"];
+    navigator.contacts.find(filter, onSuccess, onError, options);
   },
 };
 
