@@ -84,9 +84,10 @@ body {
   color: #ffffff !important;
 }
 .btn {
-  width: 60%;
+  width: 90%;
   background-color: #0099ff;
   height: 7vh;
+  border-radius: 15px;
   font-weight: normal;
   color: #ffffff !important;
   font-size: 1em;

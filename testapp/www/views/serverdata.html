@@ -4,10 +4,9 @@
     justify-content: flex-end;
   }
   #show {
-    width: 50%;
-    height: 30%;
+    width: 60%;
+    height: 40%;
     margin-bottom: 50px;
-    background-color: blue;
     text-align: center;
     position: relative;
   }
@@ -20,8 +19,14 @@
     left: 0;
     background-color: green;
   }
+  .btnsViews {
+    background-color: yellow;
+  }
   .spaceBetween {
     margin-bottom: 8px;
+  }
+  #buttons {
+    margin-bottom: 40px;
   }
 </style>
 
@@ -42,7 +47,7 @@
     });
     $("#buttons").click(function () {
       for (let index = 1; index <= 1000; index++) {
-        $("#show").append("<button class='views'>click me</button>");
+        $("#show").append("<button class='views btnsViews'>click me</button>");
       }
     });
     $("#fetch").click(function () {
