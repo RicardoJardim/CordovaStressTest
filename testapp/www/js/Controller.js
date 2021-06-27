@@ -30,8 +30,8 @@ var Controller = function () {
       $(".nav__link").removeClass("active");
       $(id).addClass("active");
 
-      $("#tab-content").empty();
-      $("#tab-content").load(`./views/${where}.html`, function (data) {});
+      $("#container").empty();
+      $("#container").load(`./views/${where}.html`, function (data) {});
     },
   };
   controller.initialize();

@@ -42,7 +42,7 @@ var app = {
         callback(response.data);
       },
       function (response) {
-        alert(response.error);
+        console.log(response.error);
       }
     );
   },
@@ -82,7 +82,9 @@ var app = {
     };
 
     function onError(error) {
-      alert("code: " + error.code + "\n" + "message: " + error.message + "\n");
+      console.log(
+        "code: " + error.code + "\n" + "message: " + error.message + "\n"
+      );
     }
 
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
@@ -106,7 +108,7 @@ var app = {
       );
     }
     function onErrorCreateFile(e) {
-      alert("Failed file write: " + e.toString());
+      console.log("Failed file write: " + e.toString());
     }
     function writeFile(fileEntry, dataObj, isAppend) {
       // Create a FileWriter object for our FileEntry (log.txt).
@@ -126,10 +128,10 @@ var app = {
   },
   calendar: function () {
     var success = function (message) {
-      alert("Success: " + JSON.stringify(message));
+      console.log("Success: " + JSON.stringify(message));
     };
     var error = function (message) {
-      alert("Error: " + message);
+      console.log("Error: " + message);
     };
     window.plugins.calendar.listCalendars(success, error);
   },
@@ -142,11 +144,11 @@ var app = {
         console.log(contacts[i]);
         list += contacts[i].displayName;
       }
-      alert(list);
+      console.log(list);
     }
 
     function onError(contactError) {
-      alert("onError! " + contactError.toString());
+      console.log("onError! " + contactError.toString());
     }
     var options = new ContactFindOptions();
     options.filter = "";
