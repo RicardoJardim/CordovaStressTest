@@ -15,21 +15,7 @@ var app = {
       controller.changeController("#btn1", "cpu");
     }
   },
-  makeGetRequest: function (link, callback) {
-    cordova.plugin.http.get(
-      link,
-      { size: "100" },
-      {},
-      function (response) {
-        console.log(response.status);
-        callback(response.status, response);
-      },
-      function (response) {
-        console.error(response.error);
-        callback(response.status, response);
-      }
-    );
-  },
+
   makeGetRequest2: function (link, callback) {
     const options = {
       method: "get",
@@ -114,7 +100,7 @@ var app = {
       // Create a FileWriter object for our FileEntry (log.txt).
       fileEntry.createWriter(function (fileWriter) {
         fileWriter.onwriteend = function () {
-          console.log("Successful file write...");
+          console.log(where + " " + new Date());
         };
 
         fileWriter.onerror = function (e) {

@@ -9,11 +9,11 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <access origin="https://random-data-api.com" />
-    <access origin="https://random-data-api.com/*" />
-
+    <access origin="http://192.168.1.112:3000/" />
+    <access origin="http://192.168.1.112:3000/*" />
+    <allow-navigation href="http://192.168.1.112:3000/*" />
+    <allow-navigation href="http://*/*" />
     <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />

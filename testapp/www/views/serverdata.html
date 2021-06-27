@@ -52,16 +52,14 @@
     });
     $("#fetch").click(function () {
       app.makeGetRequest2(
-        "https://random-data-api.com/api/users/random_user?size=100",
+        "http://192.168.1.112:3000/users?size=100",
         function (data) {
-          console.log(data);
           app.writeFile("users.txt", data);
         }
       );
       app.makeGetRequest2(
-        "https://random-data-api.com/api/bank/random_bank?size=100",
+        "http://192.168.1.112:3000/banks?size=100",
         function (data) {
-          console.log(data);
           app.writeFile("bank.txt", data);
         }
       );
